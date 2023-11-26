@@ -1,0 +1,210 @@
+/* Font */
+@font-face{
+    font-family:'BebasNeue';
+    src: url(fonts/BebasNeue-Regular.woff) format('woff');
+}
+
+/* Style Utama */
+body{
+    font: 18px/36px 'BebasNeue', 'Arial Narrow', arial, sans-serif;
+    background-color: #eee;
+}
+
+h1{
+    font-size: 80px;
+    margin: 50px 0;
+    text-align: center;
+   text-shadow:  0 0 5px rgba(0,0,0,.5);
+}
+
+.container {
+    width: 600px;
+    background-color: white;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0 0 5px 6px rgba(0,0,0,.5);
+    border-radius: 10px;
+}
+
+.gallery li {
+    width: 120px;
+    height: 120px;
+     /* overflow: hidden; */
+    border: 5px solid #666;
+    float: left;
+    margin-right: 20px;
+    position: relative;
+
+}
+
+.gallery li ,
+.gallery li .anjing,
+.gallery li .harimau,
+.gallery li .lembu,
+.gallery li .monyet,
+.gallery li span
+ {
+    border-radius: 50%;
+}
+
+.gallery li span {
+    display: block;
+    width: 120px;
+    height: 120px;
+    background-color: rgba(200,200,200,.5);
+    position: absolute;
+    top: 0;
+    text-align: center;
+    line-height: 120px;
+    color: #333;
+    text-shadow: 1px 1px 1px #ddd;
+    opacity: 0;
+    transition: .3s;
+    transform: scale() rotate(0);
+}
+
+.gallery li a:hover span {
+    opacity: 1;
+    transform: scale(1) rotate(360deg);
+}
+
+.clear {
+    clear: both;
+}
+
+
+/* Overlay */
+.overlay  {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0);
+    z-index: 999 ;
+    transition:.8s;
+    text-align: center;
+    border-radius: 0%;
+    padding: 100px 0 ;
+}
+
+.overlay:target {
+    width: auto;
+    height: auto;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.7);
+}
+
+
+.overlay img {
+    max-height: 100%;
+    box-shadow: 2px 2px 7px rgba(0,0,0,.8);
+}
+
+.overlay:target img {
+    animation: zoomnfade .7s;
+}
+
+.overlay .close {
+    position: absolute;
+    top: 50px;
+    color: #eee;
+    left: 50%;
+    margin-left: -18px;
+    text-decoration: none;
+    background-color:rgba(0,0,0,.3);
+    border: 1px solid white ;
+    padding: 5px;
+    line-height: 25px;
+    opacity: 0;
+
+}
+
+.overlay:target .close {
+    animation: close .5s .5s forwards;
+}
+
+.overlay:target .prev,  
+.overlay:target .next{
+    animation: fade .5s .2s forwards;
+}
+
+/* Navigasi */
+.next, .prev {
+    width: 120px;
+    height: 120px;
+    background-image: url(/img/tombol/next.png);
+    position: absolute;
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+    top: 45%;
+    margin-left: 20px;
+    text-align: center;
+    background-position: 15px 10px;
+    opacity: 0;
+}
+
+.next:hover {
+    background-color: rgba(333,333,333,.2);
+    border-radius: 50%;
+}
+
+.prev {
+    background-image: url(/img/tombol/prev.png);
+    margin-left: -140px;
+    background-position: 0 10px;
+}
+
+.prev:hover {
+    background-color: rgba(333,333,333,.2);
+    border-radius: 50%;
+}
+
+
+
+/* Animasi */
+
+@keyframes zoomnfade {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes close {
+    0% {
+        opacity: 0;
+        margin-top: -20px;
+    }
+    100% {
+        opacity: 1;
+        margin-top: 0;
+    }
+
+}
+
+@keyframes fade {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+
+
+
+
+
+
+
+
